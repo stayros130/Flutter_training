@@ -9,21 +9,20 @@ class GradientContainer extends StatelessWidget {
   const GradientContainer(this.listColors, {super.key});
 
   final List<Color> listColors;
- 
 
   @override
   Widget build(context) {
     return Container(
-          decoration: BoxDecoration(
-            gradient: LinearGradient(
-              colors: listColors,
-               begin: startAlignment,
-               end: endAlignment,
-            ),
-          ),
-          child: const Center(
-            child: DiceRoller(),
-          ),
-        );
+      decoration: BoxDecoration(
+        gradient: LinearGradient(
+          colors: listColors,
+          begin: startAlignment,
+          end: endAlignment,
+        ),
+      ),
+      child: const Center(
+        child: DiceRoller(),
+      ),
+    );
   }
 }

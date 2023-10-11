@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
 
 class BackColours extends StatelessWidget {
-  const BackColours(this.listColors, {super.key});
+  BackColours(this.listColors, {super.key});
 
-  final List<Color> listColors;
+  BackColours.withLogoImage(List<Color> listColors, String imageName, {super.key}): listColors = listColors, imageName = imageName;
+
+  List<Color> listColors;
+
+  String imageName = 'empty.png';
 
   @override
   Widget build(context) {
@@ -15,6 +19,21 @@ class BackColours extends StatelessWidget {
           end: Alignment.bottomRight,
         ),
       ),
-    );
+      child: Center(
+        child: Align(
+          alignment: const Alignment(0, -0.4),
+        child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+                Image.asset(
+                  'assets/images/$imageName', 
+                  width: 300,
+                  height: 300,
+                )
+              ]
+        ),
+      ),
+    ),
+   );
   }
 }
