@@ -21,7 +21,7 @@ class BackColours extends StatelessWidget {
       ),
       child: Center(
         child: Align(
-          alignment: const Alignment(0, -0.4),
+          alignment: const Alignment(0, -0.3),
         child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
