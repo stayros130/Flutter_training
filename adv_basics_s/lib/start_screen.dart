@@ -1,21 +1,11 @@
 import 'package:flutter/material.dart';
 
 class StartScreen extends StatelessWidget {
-  const StartScreen(this.listColors, {super.key});
-
-  final List<Color> listColors;
+  const StartScreen({super.key});
 
   @override
   Widget build(context) {
-    return Container(
-      decoration: BoxDecoration(
-        gradient: LinearGradient(
-          colors: listColors,
-          begin: Alignment.topLeft,
-          end: Alignment.bottomRight,
-        ),
-      ),
-      child: Center(
+    return Center(
         child: Column(
           mainAxisSize: MainAxisSize.min, 
           children: [
@@ -46,7 +36,6 @@ class StartScreen extends StatelessWidget {
             label: const Text('Start Quiz'),
           )
         ]),
-      ),
-    );
+      );
   }
 }
