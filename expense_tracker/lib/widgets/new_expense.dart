@@ -2,7 +2,9 @@ import 'package:expense_tracker/models/expense.dart';
 import 'package:flutter/material.dart';
 
 class NewExpense extends StatefulWidget{
-  const NewExpense({super.key});
+  const NewExpense({super.key, required this.onAddExpense});
+
+  final void Function (Expense expense) onAddExpense;
 
   @override
   State<StatefulWidget> createState() {
@@ -30,6 +32,39 @@ class _NewExpenseState extends State<NewExpense> {
     });
   }
 
+  void _submitExpenseData() {
+    final enteredAmount = double.tryParse(_amountContoller.text);
+    final amountIsInvalid = enteredAmount == null || enteredAmount <= 0;
+    if (_titleContoller.text.trim().isEmpty || amountIsInvalid || _selectedDate == null) {
+      showDialog(
+        context: context,
+        builder: (ctx) => AlertDialog(
+          title: const Text('Invalid input'),
+          content: const Text ('Please Make sure a valid title, amount, date and category was entered.'),
+          actions: [
+            TextButton(
+              onPressed: () {
+                Navigator.pop(ctx);
+              },
+              child: const Text('Okay'),
+            ),
+          ],
+        ),
+      );
+      return;
+    }
+
+    widget.onAddExpense(
+      Expense(
+        title: _titleContoller.text,
+        amount: enteredAmount,
+        date: _selectedDate!,
+        category: _selectedCategory,
+      ),
+    );
+    Navigator.pop(context);
+  }
+
   @override
   void dispose() {
     _titleContoller.dispose();
@@ -40,7 +75,7 @@ class _NewExpenseState extends State<NewExpense> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(16),
+      padding: const EdgeInsets.fromLTRB(16, 48, 16, 16),
       child: Column(
         children: [
           TextField(
@@ -116,10 +151,7 @@ class _NewExpenseState extends State<NewExpense> {
                 width: 12,
               ),
               ElevatedButton(
-                onPressed: () {
-                  print(_titleContoller.text);
-                  print(_amountContoller.text);
-                },
+                onPressed: _submitExpenseData,
                 child: const Text('Save Expense'),
               ),
             ],
