@@ -8,10 +8,6 @@ var kColorScheme = ColorScheme.fromSeed(seedColor: const Color.fromARGB(255, 32,
 var kDarkColorScheme = ColorScheme.fromSeed(brightness: Brightness.dark, seedColor: const Color.fromARGB(255, 5, 99, 125));
 
 void main() {
-  // WidgetsFlutterBinding.ensureInitialized();
-  // SystemChrome.setPreferredOrientations([
-  //   DeviceOrientation.portraitUp,
-  // ]).then((fn) {
      runApp(
       MaterialApp(
         darkTheme: ThemeData.dark().copyWith(
