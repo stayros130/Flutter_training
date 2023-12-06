@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:uniwa_quest/screens/loaded_screen.dart';
+import 'package:uniwa_quest/screens/student_main_screen.dart';
 
 class LoadingScreen extends StatelessWidget {
  const LoadingScreen({super.key});
@@ -14,7 +15,8 @@ class LoadingScreen extends StatelessWidget {
       isLoading = false;
       Navigator.pushReplacement(
         context,
-        MaterialPageRoute(builder: (context) => const LoadedScreen()),
+        //MaterialPageRoute(builder: (context) => LoadedScreen()),  //left for testing
+        MaterialPageRoute(builder: (context) => StudentMainScreen()),
       );
     });
 
