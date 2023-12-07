@@ -8,14 +8,15 @@ class CustomButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var buttonWidth = MediaQuery.of(context).size.width / 1.2;
-    var buttonHeight = MediaQuery.of(context).size.height / 12;
+    double buttonWidth = MediaQuery.of(context).size.width / 1.2;
+    double buttonHeight = MediaQuery.of(context).size.height / 12;
   
-    //if ()
+    if (buttonHeight > 75) buttonHeight = 75;
+    if (buttonWidth > 710) buttonWidth = 710;
 
     return SizedBox(
-      height: MediaQuery.of(context).size.height / 12, 
-      width: MediaQuery.of(context).size.width / 1.2,
+      height: buttonHeight, 
+      width: buttonWidth,
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
           shape: RoundedRectangleBorder(

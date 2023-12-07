@@ -33,16 +33,17 @@ class StudentMainScreen extends StatelessWidget {
                   onPressed: () {},
                 ),
                 Positioned(
-                  right: 0,
+                  right: 2,
+                  top: 2,
                   child: Container(
                     padding: const EdgeInsets.all(2),
                     decoration: BoxDecoration(
                       color: notificationColor,
-                      borderRadius: BorderRadius.circular(12),
+                      borderRadius: BorderRadius.circular(32),
                     ),
                     constraints: const BoxConstraints(
-                      minWidth: 28,
-                      minHeight: 28,
+                      minWidth: 38,
+                      minHeight: 38,
                     ),
                   ),
                 ),
