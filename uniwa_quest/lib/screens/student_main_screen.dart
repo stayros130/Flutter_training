@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:uniwa_quest/screens/current_quests_screen.dart';
 import 'package:uniwa_quest/widgets/custom_button.dart';
+import 'package:uniwa_quest/screens/loaded_screen.dart';
+import 'package:uniwa_quest/ranks.dart';
 
 class StudentMainScreen extends StatelessWidget {
   StudentMainScreen({super.key});
@@ -14,7 +17,8 @@ class StudentMainScreen extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('Rank: $dummyXp'),
+        title: Text(
+            'Rank: ${Ranks().getRank(dummyXp).toString().split('.').last}'), // Get rank from xp
       ),
       body: Center(
         child: Column(
@@ -22,7 +26,12 @@ class StudentMainScreen extends StatelessWidget {
           children: [
             CustomButton(
               buttonText: 'Current Quests',
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const CurrentQuestsScreen()));
+              },
             ),
             SizedBox(
                 height:MediaQuery.of(context).size.height / 20), // Add some space
@@ -30,7 +39,12 @@ class StudentMainScreen extends StatelessWidget {
               children: [
                 CustomButton(
                   buttonText: 'Pending Quests',
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const LoadedScreen()));
+                  },
                 ),
                 Positioned(
                   right: 2,
@@ -52,12 +66,22 @@ class StudentMainScreen extends StatelessWidget {
             SizedBox(height: MediaQuery.of(context).size.height/20), // Add some space
             CustomButton(
               buttonText: 'Available Quests',
-              onPressed: (){},
+              onPressed: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const LoadedScreen()));
+              },
             ),
             SizedBox(height: MediaQuery.of(context).size.height/20), // Add some space
             CustomButton(
               buttonText: 'History of Quests',
-              onPressed: (){},
+              onPressed: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const LoadedScreen()));
+              },
             ),
             SizedBox(height: MediaQuery.of(context).size.height/20), // Add some space
           ],
