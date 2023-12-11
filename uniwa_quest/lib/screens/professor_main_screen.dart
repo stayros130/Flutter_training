@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:uniwa_quest/screens/current_quests_screen.dart';
-import 'package:uniwa_quest/screens/guild_board_screen.dart';
 import 'package:uniwa_quest/screens/history_of_quests_screen.dart';
 import 'package:uniwa_quest/screens/pending_quests_screen.dart';
 import 'package:uniwa_quest/widgets/custom_button.dart';
+import 'package:uniwa_quest/screens/loaded_screen.dart';
 import 'package:uniwa_quest/ranks.dart';
 
-class StudentMainScreen extends StatelessWidget {
-  StudentMainScreen({super.key});
+class ProfessorMainScreen extends StatelessWidget {
+  ProfessorMainScreen({super.key});
 
   int dummyXp = 420;
   bool notification = true;
@@ -27,12 +26,12 @@ class StudentMainScreen extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             CustomButton(
-              buttonText: 'Current Quests',
+              buttonText: 'Create Quest',
               onPressed: () {
                 Navigator.push(
                     context,
                     MaterialPageRoute(
-                        builder: (context) => const CurrentQuestsScreen()));
+                        builder: (context) => const LoadedScreen()));
               },
             ),
             SizedBox(
@@ -64,16 +63,6 @@ class StudentMainScreen extends StatelessWidget {
                   ),
                 ),
               ],
-            ),
-            SizedBox(height: MediaQuery.of(context).size.height/20), // Add some space
-            CustomButton(
-              buttonText: 'Available Quests',
-              onPressed: () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => const GuildBoardScreen()));
-              },
             ),
             SizedBox(height: MediaQuery.of(context).size.height/20), // Add some space
             CustomButton(

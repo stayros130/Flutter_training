@@ -10,15 +10,21 @@ class CurrentQuestsScreen extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Accepted Quests'),
       ),
-      body: const Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            AcceptedQuestModal(
-              title: 'Current Quest Test',
-              skills: 'Java', xp: 420, description: 'testy'
+      body: const SingleChildScrollView( // Wrap the Column in a SingleChildScrollView
+        child: Padding( // Wrap the Column in a Padding widget
+          padding: EdgeInsets.all(8.0), // Add padding here
+          child: Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                AcceptedQuestModal(
+                  title: 'Current Quest Test',
+                  skills: 'Java', xp: 420, description: 'testy'
+                ),
+                // Add more AcceptedQuestModal widgets here
+              ],
             ),
-          ],
+          ),
         ),
       ),
     );

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:uniwa_quest/screens/loaded_screen.dart';
 import 'package:uniwa_quest/screens/student_main_screen.dart';
+import 'package:uniwa_quest/screens/professor_main_screen.dart';
 
 class LoadingScreen extends StatelessWidget {
  const LoadingScreen({super.key});
@@ -9,16 +9,26 @@ class LoadingScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     var screenSize = MediaQuery.of(context).size; // Get screen size
     bool isLoading = true; // Set loading state
+    var width = screenSize.width/2;
+    var height = screenSize.height/4;
+    // String role = 'Student'; // Set Student role
+    String role = 'Professor'; // Set Professor role
+    Widget mainScreen = StudentMainScreen(); // Set Student main screen
     
     // Simulate loading 
     Future.delayed(const Duration(seconds: 3), () {
       isLoading = false;
+      if (role == 'Professor') mainScreen = ProfessorMainScreen(); // Set Professor main screen
       Navigator.pushReplacement(
         context,
-        //MaterialPageRoute(builder: (context) => LoadedScreen()),  //left for testing
-        MaterialPageRoute(builder: (context) => StudentMainScreen()),
+        MaterialPageRoute(builder: (context) => mainScreen),
       );
     });
+
+    if (screenSize.width > screenSize.height) { // If landscape
+      width = screenSize.width/4;
+      height = screenSize.height/2;
+    }
 
     return Scaffold(
       body: Center(
@@ -47,8 +57,8 @@ class LoadingScreen extends StatelessWidget {
             ), // Show data
             SizedBox(height: screenSize.height/20),
             SizedBox(
-              width: screenSize.width/2, // Screen width
-              height: screenSize.height/4, // Screen height
+              width: width, // Screen width
+              height: height, // Screen height
               child: const CircularProgressIndicator(), // Loading animation
             ),
             SizedBox(height: screenSize.height/20), // Add some space
