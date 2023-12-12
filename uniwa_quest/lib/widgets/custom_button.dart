@@ -6,6 +6,7 @@ class CustomButton extends StatelessWidget {
   final String buttonText;
   final VoidCallback onPressed;
   Color buttonColor = Colors.blue;
+  double buttonElevation = 10;
 
   @override
   Widget build(BuildContext context) {
@@ -20,6 +21,7 @@ class CustomButton extends StatelessWidget {
       width: buttonWidth,
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
+          elevation: buttonElevation,
           backgroundColor: buttonColor,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(10.0),

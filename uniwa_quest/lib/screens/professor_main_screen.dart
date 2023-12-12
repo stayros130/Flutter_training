@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:uniwa_quest/screens/history_of_quests_screen.dart';
+import 'package:uniwa_quest/screens/portfolio_screen.dart';
 import 'package:uniwa_quest/screens/pending_quests_screen.dart';
 import 'package:uniwa_quest/widgets/custom_button.dart';
 import 'package:uniwa_quest/screens/loaded_screen.dart';
@@ -71,7 +71,7 @@ class ProfessorMainScreen extends StatelessWidget {
                 Navigator.push(
                     context,
                     MaterialPageRoute(
-                        builder: (context) => const HistoryOfQuestsScreen()));
+                        builder: (context) => PortfolioScreen()));
               },
             ),
             SizedBox(height: MediaQuery.of(context).size.height/20), // Add some space
