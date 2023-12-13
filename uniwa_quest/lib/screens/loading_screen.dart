@@ -11,8 +11,8 @@ class LoadingScreen extends StatelessWidget {
     bool isLoading = true; // Set loading state
     var width = screenSize.width/2;
     var height = screenSize.height/4;
-    // String role = 'Student'; // Set Student role
-    String role = 'Professor'; // Set Professor role
+    String role = 'Student'; // Set Student role
+    //String role = 'Professor'; // Set Professor role
     Widget mainScreen = StudentMainScreen(); // Set Student main screen
     
     // Simulate loading 

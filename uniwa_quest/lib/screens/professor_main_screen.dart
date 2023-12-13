@@ -44,7 +44,7 @@ class ProfessorMainScreen extends StatelessWidget {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => const PendingQuestsScreen()));
+                            builder: (context) => PendingQuestsScreen()));
                   },
                 ),
                 Positioned(

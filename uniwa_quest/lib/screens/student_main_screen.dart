@@ -32,7 +32,7 @@ class StudentMainScreen extends StatelessWidget {
                 Navigator.push(
                     context,
                     MaterialPageRoute(
-                        builder: (context) => const CurrentQuestsScreen()));
+                        builder: (context) => CurrentQuestsScreen()));
               },
             ),
             SizedBox(
@@ -45,7 +45,7 @@ class StudentMainScreen extends StatelessWidget {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => const PendingQuestsScreen()));
+                            builder: (context) => PendingQuestsScreen()));
                   },
                 ),
                 Positioned(
@@ -72,7 +72,7 @@ class StudentMainScreen extends StatelessWidget {
                 Navigator.push(
                     context,
                     MaterialPageRoute(
-                        builder: (context) => const GuildBoardScreen()));
+                        builder: (context) => GuildBoardScreen()));
               },
             ),
             SizedBox(height: MediaQuery.of(context).size.height/20), // Add some space
